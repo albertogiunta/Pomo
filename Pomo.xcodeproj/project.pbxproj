@@ -53,12 +53,12 @@
 		D4F408632162A21F0053DEF8 /* Pomo */ = {
 			isa = PBXGroup;
 			children = (
-				D4F408642162A21F0053DEF8 /* AppDelegate.swift */,
 				D4F408662162A21F0053DEF8 /* ViewController.swift */,
-				D4F408682162A2210053DEF8 /* Assets.xcassets */,
 				D4F4086A2162A2210053DEF8 /* Main.storyboard */,
-				D4F4086D2162A2210053DEF8 /* Info.plist */,
+				D4F408682162A2210053DEF8 /* Assets.xcassets */,
+				D4F408642162A21F0053DEF8 /* AppDelegate.swift */,
 				D4F4086E2162A2210053DEF8 /* Pomo.entitlements */,
+				D4F4086D2162A2210053DEF8 /* Info.plist */,
 			);
 			path = Pomo;
 			sourceTree = "<group>";

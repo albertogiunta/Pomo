@@ -706,46 +706,81 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Pomo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="284" height="66"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ECU-ha-fUu">
-                                <rect key="frame" x="200" y="118" width="81" height="32"/>
-                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="lCJ-ML-T49">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YV3-SQ-fQR" userLabel="Lbl Time">
+                                <rect key="frame" x="9" y="28" width="90" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="ZJj-Dv-arR"/>
+                                </constraints>
+                                <textFieldCell key="cell" alignment="center" title="Pomo!" drawsBackground="YES" usesSingleLineMode="YES" id="BDG-Sw-KID">
+                                    <font key="font" metaFont="system" size="25"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="windowBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <action selector="onTimeClicked:" target="XfG-lQ-9wD" id="A4X-Ka-TkK"/>
+                                </connections>
+                            </textField>
+                            <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ctP-Aw-xaI" userLabel="Btn Play Pause">
+                                <rect key="frame" x="9" y="7" width="21" height="17"/>
+                                <buttonCell key="cell" type="inline" title="॥" bezelStyle="inline" alignment="center" borderStyle="border" inset="2" id="CVA-3M-BXd">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                    <string key="keyEquivalent" base64-UTF8="YES">
-DQ
-</string>
+                                    <font key="font" metaFont="smallSystemBold"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="onStartStopButtonClicked:" target="XfG-lQ-9wD" id="LXV-04-Q3s"/>
+                                    <action selector="onPlayPauseClicked:" target="XfG-lQ-9wD" id="683-mu-Lyy"/>
                                 </connections>
                             </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UwR-vs-c9O" userLabel="Lbl Countdown">
-                                <rect key="frame" x="222" y="154" width="37" height="17"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="6xj-ZY-Yfi">
+                            <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aDy-UZ-8bK">
+                                <rect key="frame" x="115" y="44" width="133" height="14"/>
+                                <buttonCell key="cell" type="check" title="Close applications" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="eaN-OQ-D2O">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
+                                </buttonCell>
+                            </button>
+                            <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xTb-bA-aRO">
+                                <rect key="frame" x="115" y="26" width="101" height="14"/>
+                                <buttonCell key="cell" type="check" title="Block socials" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="UoH-G0-sw4">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sWw-UJ-EbZ" userLabel="Btn Skip">
+                                <rect key="frame" x="79" y="7" width="20" height="17"/>
+                                <buttonCell key="cell" type="inline" title="»" bezelStyle="inline" alignment="center" borderStyle="border" inset="2" id="tYM-L3-Bs1">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="smallSystemBold"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="onSkipClicked:" target="XfG-lQ-9wD" id="vtn-ho-Xxq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="ECU-ha-fUu" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="aGa-TD-uWw"/>
-                            <constraint firstItem="ECU-ha-fUu" firstAttribute="top" secondItem="UwR-vs-c9O" secondAttribute="bottom" constant="8" id="lzH-ha-Sva"/>
-                            <constraint firstItem="ECU-ha-fUu" firstAttribute="centerX" secondItem="UwR-vs-c9O" secondAttribute="centerX" id="veK-id-bqb"/>
-                            <constraint firstItem="ECU-ha-fUu" firstAttribute="centerY" secondItem="m2S-Jp-Qdl" secondAttribute="centerY" id="zsj-ED-Rf3"/>
+                            <constraint firstItem="sWw-UJ-EbZ" firstAttribute="trailing" secondItem="YV3-SQ-fQR" secondAttribute="trailing" id="0eq-BW-I3o"/>
+                            <constraint firstItem="aDy-UZ-8bK" firstAttribute="leading" secondItem="xTb-bA-aRO" secondAttribute="leading" id="Ad3-QN-OqV"/>
+                            <constraint firstItem="xTb-bA-aRO" firstAttribute="bottom" secondItem="YV3-SQ-fQR" secondAttribute="bottom" id="BRO-Ra-c8Y"/>
+                            <constraint firstItem="YV3-SQ-fQR" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="9" id="FYx-0d-Wt9"/>
+                            <constraint firstAttribute="bottom" secondItem="sWw-UJ-EbZ" secondAttribute="bottom" constant="8" id="QXy-X7-Qsp"/>
+                            <constraint firstAttribute="bottom" secondItem="ctP-Aw-xaI" secondAttribute="bottom" constant="8" id="TNu-H6-dm4"/>
+                            <constraint firstItem="aDy-UZ-8bK" firstAttribute="leading" secondItem="YV3-SQ-fQR" secondAttribute="trailing" constant="18" id="bNI-r4-Xhe"/>
+                            <constraint firstItem="xTb-bA-aRO" firstAttribute="top" secondItem="aDy-UZ-8bK" secondAttribute="bottom" constant="6" symbolic="YES" id="bmE-zm-0Jq"/>
+                            <constraint firstItem="xTb-bA-aRO" firstAttribute="centerY" secondItem="m2S-Jp-Qdl" secondAttribute="centerY" id="d3U-G5-RmF"/>
+                            <constraint firstItem="YV3-SQ-fQR" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="8" id="nwj-U6-9fZ"/>
+                            <constraint firstItem="aDy-UZ-8bK" firstAttribute="top" secondItem="YV3-SQ-fQR" secondAttribute="top" id="vrD-CD-iDb"/>
+                            <constraint firstAttribute="trailing" secondItem="aDy-UZ-8bK" secondAttribute="trailing" constant="38" id="xa2-ay-he2"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="btnStartStop" destination="ECU-ha-fUu" id="SCy-b5-RFK"/>
-                        <outlet property="lblCountdown" destination="UwR-vs-c9O" id="Ccn-EW-otK"/>
+                        <outlet property="btnPlayPause" destination="ctP-Aw-xaI" id="dcQ-tt-sXC"/>
+                        <outlet property="lblTime" destination="YV3-SQ-fQR" id="fqD-Bc-FfE"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="112" y="643"/>
         </scene>
     </scenes>
 </document>

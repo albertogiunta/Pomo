@@ -9,26 +9,65 @@
 import Cocoa
 
 class ViewController: NSViewController {
-    let workIntervalSeconds = 1500
-    let pauseIntervalSeconds = 300
+//    1500 - 300
+    let workIntervalSeconds = 5
+    let pauseIntervalSeconds = 3
     let oneSecond = 1
     
-    var intervalCounter = 0
     var timer = Timer()
+    var remainingTime = 0
     var isWorkInterval = false
+    var isPaused = false
     
-    @IBOutlet weak var lblCountdown: NSTextField!
+    @IBOutlet weak var lblTime: NSTextField!
+    @IBOutlet weak var btnPlayPause: NSButton!
     
-    @IBOutlet weak var btnStartStop: NSButton!
     
-    @IBAction func onStartStopButtonClicked(_ sender: Any) {
+    @IBAction func onApplicationCloserSwitchClicked(_ sender: NSButton) {
+        
+    }
+    
+    
+    @IBAction func onSocialsBlockerSwitchClicked(_ sender: NSButton) {
+    }
+    
+    @IBAction func onPlayPauseClicked(_ sender: Any) {
+        onPlayPauseClicked()
+    }
+    
+    @IBAction func onSkipClicked(_ sender: Any) {
+        onSkipButtonClicked()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.resetWorkTimer()
+        updateRemainingTimeLabel()
+        startWorkTimer()
+    }
+    
+    override var representedObject: Any? {
+        didSet {}
+    }
+    
+    func onPlayPauseClicked() {
+        isPaused.toggle()
+        
+        if isPaused {
+            timer.invalidate()
+            btnPlayPause.title = "▸"
+        } else {
+            startTimer()
+            btnPlayPause.title = "॥"
+        }
+    }
+    
+    func onSkipButtonClicked() {
         isWorkInterval.toggle()
         
         if isWorkInterval {
-            btnStartStop.title = "Start your 5 minutes pause now"
             startWorkTimer()
         } else {
-            btnStartStop.title = "Back to work!"
             startPauseTimer()
         }
         
@@ -38,49 +77,44 @@ class ViewController: NSViewController {
     func startWorkTimer() {
         resetWorkTimer()
         startTimer()
-    }
-    
-    func resetWorkTimer() {
-        intervalCounter = workIntervalSeconds
-        timer.invalidate()
+        lblTime.textColor = NSColor.red
     }
     
     func startPauseTimer() {
         resetPauseTimer()
         startTimer()
+        lblTime.textColor = NSColor.green
     }
     
-    func resetPauseTimer() {
-        intervalCounter = pauseIntervalSeconds
+    func resetWorkTimer() {
+        remainingTime = workIntervalSeconds
         timer.invalidate()
     }
     
-    func getRemainingTimeAsString() -> String{
-        let minutes = (intervalCounter / 60) % 60
-        let seconds = intervalCounter % 60
-        return String(format: "%02d:%02d", minutes, seconds)
+    func resetPauseTimer() {
+        remainingTime = pauseIntervalSeconds
+        timer.invalidate()
     }
     
     func updateRemainingTimeLabel() {
-        self.lblCountdown.stringValue = self.getRemainingTimeAsString()
+        self.lblTime.stringValue = self.getRemainingTimeAsString()
     }
     
     func startTimer() {
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (Timer) in
-            self.intervalCounter -= self.oneSecond
+            self.remainingTime -= self.oneSecond
             self.updateRemainingTimeLabel()
+            
+            if self.remainingTime <= 0 {
+                self.onSkipButtonClicked()
+            }
         })
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.resetWorkTimer()
-        self.btnStartStop.title = "POMO! NOW!"
-        self.lblCountdown.stringValue = "25:00"
-    }
-
-    override var representedObject: Any? {
-        didSet {}
+    func getRemainingTimeAsString() -> String {
+        let minutes = (remainingTime / 60) % 60
+        let seconds = remainingTime % 60
+        return String(format: "%02d:%02d", minutes, seconds)
     }
 }
 
